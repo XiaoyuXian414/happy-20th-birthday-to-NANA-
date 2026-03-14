@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>祝纳纳仔20岁生日快乐！</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Parisienne&display=swap" rel="stylesheet">
+    <style>
+        /* 页面整体样式 */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ECE94B 0%, #FFC6A4 35%, #F88F70 70%, #BC5B40 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: left;
+        }
+        .card {
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(4px);
+            border-radius: 28px;
+            padding: 30px;
+            max-width: 1100px;
+            width: 90%;
+            margin: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+            border: 2px solid rgba(255,255,255,0.6);
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        h1 {
+            font-size: 7.0rem;
+            color: #BC5B40;
+            margin: 0 0 10px 0;
+            line-height: 1.0;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        .subtitle {
+            color: rgba(71, 14, 14, 0.866);
+            margin-top: 8px;
+            font-size: 2.0rem;
+        }
+        .message {
+            font-size: 1.15rem;
+            color: #5a3a35;
+            margin: 20px 0;
+            line-height: 1.6;
+            font-family: "SimSun", "Songti SC", "Noto Serif SC", serif;
+        }
+        
+
+        /* 蛋糕图标（用emoji放大） */
+        .cake {
+            font-size: 4.2rem;
+            margin: 18px 0;
+            filter: drop-shadow(0 8px 8px rgba(0,0,0,0.08));
+        }
+        /* 大型左侧人像样式（使用上传的图片） */
+        .left {
+            flex: 0 0 46%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .portrait-wrapper {
+            width: 420px;
+            height: 540px;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 6px solid #BC5B40;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12), inset 0 -6px 20px rgba(0,0,0,0.03);
+            background: #fff;
+            clip-path: ellipse(48% 52% at 50% 50%);
+        }
+        .portrait-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .right {
+            flex: 1 1 54%;
+            padding: 10px 20px 10px 10px;
+        }
+        .right .content {
+            position: relative;
+            z-index: 2;
+            padding-top: 10px;
+        }
+
+        /* 响应式处理 */
+        @media (max-width: 880px) {
+            .card { flex-direction: column; text-align: center; }
+            .left, .right { flex: none; width: 100%; }
+            .portrait-wrapper { width: 300px; height: 380px; margin: 0 auto; }
+            h1 { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="left">
+            <div class="portrait-wrapper">
+                <img src="nana.jpg" alt="纳纳仔的照片">
+            </div>
+        </div>
+        <div class="right">
+            
+
+            <div class="content">
+                <h1>Happy<br> 
+                    Birthday</h1>
+                <div class="subtitle" style="font-family: 'SimSun','Songti SC','Noto Serif SC',serif; font-weight:700;">祝纳纳仔20岁生日快乐！</div>
+                <div class="cake">🎂</div>
+                <p class="message">
+                    感谢纳纳仔 像清晨摘下来的滴着露珠的甜甜小橘子一样<br>
+                    出现在小鱼仔的大学生活中！<br>
+
+                    继续闪闪发光，做最酷的自己 ✨
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
