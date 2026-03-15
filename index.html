@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>祝纳纳仔20岁生日快乐！</title>
+    <title>祝纳纳仔20岁<br>
+           生日快乐！</title>
+
+           
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Allura&family=Great+Vibes&family=Parisienne&display=swap" rel="stylesheet">
@@ -69,15 +72,25 @@
             justify-content: center;
             align-items: center;
         }
+        .portrait-frame {
+            width: 436px;
+            height: 556px;
+            background: linear-gradient(145deg, #f5dfa0 0%, #FFC6A4 30%, #F88F70 65%, #BC5B40 100%);
+            clip-path: ellipse(48% 52% at 50% 50%);
+            filter:
+                drop-shadow(0 22px 44px rgba(188,91,64,0.48))
+                drop-shadow(0 6px 14px rgba(188,91,64,0.28))
+                drop-shadow(0 -3px 10px rgba(255,220,160,0.45));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
         .portrait-wrapper {
             width: 420px;
             height: 540px;
-            border-radius: 24px;
             overflow: hidden;
-            border: 6px solid #BC5B40;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.12), inset 0 -6px 20px rgba(0,0,0,0.03);
-            background: #fff;
             clip-path: ellipse(48% 52% at 50% 50%);
+            background: #fff;
         }
         .portrait-wrapper img {
             width: 100%;
@@ -95,11 +108,53 @@
             padding-top: 10px;
         }
 
+        /* 音乐控制按钮 */
+        .music-btn {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #BC5B40, #F88F70);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 52px;
+            height: 52px;
+            cursor: pointer;
+            box-shadow: 0 4px 16px rgba(188,91,64,0.45);
+            transition: transform 0.15s, box-shadow 0.15s;
+            user-select: none;
+        }
+        .music-btn:hover {
+            transform: translateY(-3px) scale(1.08);
+            box-shadow: 0 8px 24px rgba(188,91,64,0.5);
+        }
+        .music-btn:active {
+            transform: scale(0.95);
+        }
+        .music-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: spin 4s linear infinite;
+        }
+        .music-icon.paused {
+            animation-play-state: paused;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
         /* 响应式处理 */
         @media (max-width: 880px) {
             .card { flex-direction: column; text-align: center; }
             .left, .right { flex: none; width: 100%; }
-            .portrait-wrapper { width: 300px; height: 380px; margin: 0 auto; }
+            .portrait-frame { width: 314px; height: 394px; margin: 0 auto; }
+            .portrait-wrapper { width: 300px; height: 380px; }
             h1 { font-size: 3rem; }
         }
     </style>
@@ -107,8 +162,10 @@
 <body>
     <div class="card">
         <div class="left">
-            <div class="portrait-wrapper">
-                <img src="nana.jpg" alt="纳纳仔的照片">
+            <div class="portrait-frame">
+                <div class="portrait-wrapper">
+                    <img src="nana.jpg" alt="纳纳仔的照片">
+                </div>
             </div>
         </div>
         <div class="right">
@@ -130,8 +187,30 @@
     </div>
 
     
-    <audio autoplay loop>
+    <button class="music-btn" id="musicBtn" onclick="toggleMusic()">
+        <span class="music-icon" id="musicIcon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
+                <path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/>
+            </svg>
+        </span>
+    </button>
+
+    <audio id="bgm" autoplay loop>
         <source src="bgm.MP3" type="audio/mpeg">
     </audio>
+
+    <script>
+        function toggleMusic() {
+            const audio = document.getElementById('bgm');
+            const icon = document.getElementById('musicIcon');
+            if (audio.paused) {
+                audio.play();
+                icon.classList.remove('paused');
+            } else {
+                audio.pause();
+                icon.classList.add('paused');
+            }
+        }
+    </script>
 </body>
 </html>
